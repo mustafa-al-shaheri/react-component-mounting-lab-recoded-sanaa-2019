@@ -12,6 +12,9 @@ class Timer extends Component {
 
 
 
+  componentDidMount(){
+    this.interval = setInterval(this.clockTick , 1000)
+  }
 
 
 
@@ -45,8 +48,10 @@ class Timer extends Component {
   handleClose = () => {
     this.props.removeTimer(this.props.id)
   }
-
+  componentWillUnmount(){
+    clearInterval(this.interval)
+  }
 
 }
-
+  
 export default Timer;
